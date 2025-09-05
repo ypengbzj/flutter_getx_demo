@@ -11,14 +11,23 @@ class HomeScreen extends GetView<Homecontroller> {
     return Scaffold(
       // 使用Obx(()=>每当改变计数时，就更新Text()。
       appBar: AppBar(title: Obx(() => Text('Clicks: ${controller.count}'))),
-      body: Center(
-        child: ElevatedButton(
-          // 用一个简单的Get.to()即可代替Navigator.push那8行，无需上下文！
-          onPressed: () => {
-            Get.toNamed('${AppRoutes.second}/${controller.count.value}')
-          }, 
-          child: const Text('Go to Other'),
-        ),
+      body: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              // 用一个简单的Get.to()即可代替Navigator.push那8行，无需上下文！
+              onPressed: () => {
+                Get.toNamed('${AppRoutes.second}/${controller.count.value}')
+              },
+              child: const Text('Go to Other'),
+            ),
+            ElevatedButton(
+              onPressed: () => {
+                Get.toNamed(AppRoutes.request)
+              }, 
+              child: const Text('Go to Request')
+            ),
+          ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: controller.increment,

@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   get:
+  dio: ^5.4.3
 
 dev_dependencies:
   flutter_test:
