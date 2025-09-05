@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'model.g.dart';
+
+@JsonSerializable()
 class HttpBinGetResponse {
   final Map<String, dynamic> args;
   final Map<String, String> headers;
@@ -11,12 +16,5 @@ class HttpBinGetResponse {
     required this.url,
   });
 
-  factory HttpBinGetResponse.fromJson(Map<String, dynamic> json) {
-    return HttpBinGetResponse(
-      args: json['args'] as Map<String, dynamic> ?? {}, 
-      headers: Map<String, String>.from(json['headers'] as Map<String, dynamic>), 
-      origin: json['origin'] as String, 
-      url: json['url'] as String,
-    );
-  }
+  factory HttpBinGetResponse.fromJson(Map<String, dynamic> json) => _$HttpBinGetResponseFromJson(json);
 }
